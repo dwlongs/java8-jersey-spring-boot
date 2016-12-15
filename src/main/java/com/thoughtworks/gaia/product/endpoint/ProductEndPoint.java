@@ -31,6 +31,7 @@ public class ProductEndPoint {
     @GET
     public Response getProduct(@PathParam("product_id") Long productId) {
         Product product = productService.getProduct(productId);
+        Response.status(Response.Status.BAD_REQUEST );
         return Response.ok().entity(product).build();
     }
 }
