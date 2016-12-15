@@ -22,7 +22,7 @@ public class ExamService {
 
     public Long addExam (Exam exam) {
         ExamModel examModel = examMapper.map(exam,ExamModel.class);
-        examDao.save(examModel);
+
         return examModel.getId();
     }
 }
