@@ -1,5 +1,7 @@
 package com.thoughtworks.gaia.res.endpoint;
 
+import com.thoughtworks.gaia.common.exception.*;
+import com.thoughtworks.gaia.common.exception.NotFoundException;
 import com.thoughtworks.gaia.product.entity.Product;
 import com.thoughtworks.gaia.res.entity.User;
 import com.thoughtworks.gaia.res.service.UsersService;
@@ -32,6 +34,9 @@ public class UsersEndpoint {
     @GET
     public Response getUser(@PathParam("user_id") Long userId) {
         User user = usersService.getUser(userId);
+        if (user == null) {
+            throw new NotFoundException();
+        }
         return Response.ok().entity(user).build();
     }
 }

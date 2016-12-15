@@ -2,12 +2,15 @@ package test.functional.res;
 
 import com.thoughtworks.gaia.GaiaApplication;
 import com.thoughtworks.gaia.common.constant.EnvProfile;
+import com.thoughtworks.gaia.common.exception.NotFoundException;
 import com.thoughtworks.gaia.res.dao.UsersDao;
 import com.thoughtworks.gaia.res.entity.User;
 import com.thoughtworks.gaia.res.model.UserModel;
 import com.thoughtworks.gaia.res.service.UsersService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.annotation.Rollback;
@@ -16,6 +19,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(GaiaApplication.class)
@@ -23,7 +28,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Transactional
 @ActiveProfiles({EnvProfile.TEST})
 public class UsersServiceFunctionTest {
-
     @Autowired
     private UsersService usersService;
 
@@ -48,5 +52,14 @@ public class UsersServiceFunctionTest {
         userModel.setName("Dog");
         userModel.setEmail("dog@zoo.com");
         return userModel;
+    }
+
+    @Test
+    public void should_return_null_when_not_found() {
+        long userId = 123L;
+        UsersDao usersDao = mock(UsersDao.class);
+        when(usersDao.idEquals(userId)).thenReturn(null);
+        User user = usersService.getUser(userId);
+        assertThat(user).isNull();
     }
 }

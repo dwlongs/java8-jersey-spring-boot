@@ -1,5 +1,6 @@
 package com.thoughtworks.gaia.res.service;
 
+import com.thoughtworks.gaia.common.exception.NotFoundException;
 import com.thoughtworks.gaia.product.ProductMapper;
 import com.thoughtworks.gaia.res.dao.UsersDao;
 import com.thoughtworks.gaia.res.entity.User;
@@ -19,7 +20,11 @@ public class UsersService {
 
     public User getUser(long userId) {
         UserModel userModel = usersDao.idEquals(userId).querySingle();
-        User user = mapper.map(userModel, User.class);
-        return user;
+        if (userModel == null) {
+            return null;
+        } else {
+            User user = mapper.map(userModel, User.class);
+            return user;
+        }
     }
 }
