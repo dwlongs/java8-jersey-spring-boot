@@ -9,4 +9,4 @@ CREATE TABLE `EXAM` (
   PRIMARY KEY (`id`)
 )
   ENGINE = InnoDB
-  DEFAULT CHAR SET = utf8;
+  DEFAULT CHARSET = utf8;

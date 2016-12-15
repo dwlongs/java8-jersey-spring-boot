@@ -20,8 +20,9 @@ public class ExamService {
     @Autowired
     private ExamMapper examMapper;
 
-    public void addExam (Exam exam) {
+    public Long addExam (Exam exam) {
         ExamModel examModel = examMapper.map(exam,ExamModel.class);
         examDao.save(examModel);
+        return examModel.getId();
     }
 }

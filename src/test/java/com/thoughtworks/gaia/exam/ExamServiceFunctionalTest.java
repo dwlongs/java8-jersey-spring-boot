@@ -4,6 +4,7 @@ import com.thoughtworks.gaia.GaiaApplication;
 import com.thoughtworks.gaia.common.constant.EnvProfile;
 import com.thoughtworks.gaia.exam.entity.Exam;
 import com.thoughtworks.gaia.exam.service.ExamService;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by hliang on 15/12/2016.
@@ -31,14 +34,20 @@ public class ExamServiceFunctionalTest {
     @Autowired
     private Exam exam;
 
-    @Test
-    public void should_get_product_with_id() throws Exception {
+    @Before
+    public void setUp() throws Exception {
         exam.setName("test");
         exam.setStartTime(new Date());
         exam.setEndTime(new Date());
         exam.setLogicNum(12);
         exam.setProgramNum(10);
         exam.setState(0);
-        examService.addExam(exam);
+    }
+
+    @Test
+    public void should_return_failed_in_given_empty_name() throws Exception {
+        exam.setName("");
+        Long returnId =examService.addExam(exam);
+        assertThat(returnId).isEqualTo(0);
     }
 }
