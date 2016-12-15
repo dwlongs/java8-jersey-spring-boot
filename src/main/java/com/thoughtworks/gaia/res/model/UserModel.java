@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "USERS")
 public class UserModel extends IdBaseModel {
 
     public String getName() {
