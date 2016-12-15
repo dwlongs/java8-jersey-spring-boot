@@ -1,7 +1,8 @@
 package com.thoughtworks.gaia.exam.entity;
 
-import org.joda.time.DateTime;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 /**
  * Created by hliang on 15/12/2016.
@@ -11,8 +12,8 @@ public class Exam {
     private Long id;
     private String name;
 
-    private DateTime startTime;
-    private DateTime endTime;
+    private Date startTime;
+    private Date endTime;
 
     private Integer logicNum;
     private Integer programNum;
@@ -35,19 +36,19 @@ public class Exam {
         this.name = name;
     }
 
-    public DateTime getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(DateTime startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public DateTime getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(DateTime endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 

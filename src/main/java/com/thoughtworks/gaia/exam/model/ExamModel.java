@@ -1,11 +1,11 @@
 package com.thoughtworks.gaia.exam.model;
 
 import com.thoughtworks.gaia.common.jpa.IdBaseModel;
-import org.joda.time.DateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * Created by hliang on 15/12/2016.
@@ -17,11 +17,11 @@ public class ExamModel extends IdBaseModel {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
-    @Column(name = "time_start", nullable = false)
-    private DateTime timeStart;
+    @Column(name = "start_time", nullable = false)
+    private Date timeStart;
 
-    @Column(name = "time_end", nullable = false)
-    private DateTime timeEnd;
+    @Column(name = "end_time", nullable = false)
+    private Date timeEnd;
 
     @Column(name = "logic_num", nullable = false)
     private Integer logicNum;
@@ -40,19 +40,19 @@ public class ExamModel extends IdBaseModel {
         this.name = name;
     }
 
-    public DateTime getTimeStart() {
+    public Date getTimeStart() {
         return timeStart;
     }
 
-    public void setTimeStart(DateTime timeStart) {
+    public void setTimeStart(Date timeStart) {
         this.timeStart = timeStart;
     }
 
-    public DateTime getTimeEnd() {
+    public Date getTimeEnd() {
         return timeEnd;
     }
 
-    public void setTimeEnd(DateTime timeEnd) {
+    public void setTimeEnd(Date timeEnd) {
         this.timeEnd = timeEnd;
     }
 
