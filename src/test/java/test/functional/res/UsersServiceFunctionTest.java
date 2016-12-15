@@ -54,12 +54,8 @@ public class UsersServiceFunctionTest {
         return userModel;
     }
 
-    @Test
-    public void should_return_null_when_not_found() {
-        long userId = 123L;
-        UsersDao usersDao = mock(UsersDao.class);
-        when(usersDao.idEquals(userId)).thenReturn(null);
-        User user = usersService.getUser(userId);
-        assertThat(user).isNull();
+    @Test(expected = NotFoundException.class)
+    public void should_throw_exception_when_not_found() {
+        usersService.getUser(-1L);
     }
 }

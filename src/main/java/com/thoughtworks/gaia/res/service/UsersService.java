@@ -21,10 +21,9 @@ public class UsersService {
     public User getUser(long userId) {
         UserModel userModel = usersDao.idEquals(userId).querySingle();
         if (userModel == null) {
-            return null;
-        } else {
-            User user = mapper.map(userModel, User.class);
-            return user;
+            throw new NotFoundException();
         }
+        User user = mapper.map(userModel, User.class);
+        return user;
     }
 }
