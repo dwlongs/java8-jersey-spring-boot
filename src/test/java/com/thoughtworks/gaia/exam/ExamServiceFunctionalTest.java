@@ -41,13 +41,12 @@ public class ExamServiceFunctionalTest {
         exam.setEndTime(new Date());
         exam.setLogicNum(12);
         exam.setProgramNum(10);
-        exam.setState(0);
     }
 
     @Test
-    public void should_return_failed_in_given_empty_name() throws Exception {
-        exam.setName("");
+    public void should_return_1_when_inserted () throws Exception {
         Long returnId =examService.addExam(exam);
-        assertThat(returnId).isEqualTo(0);
+        assertThat(returnId).isEqualTo(1);
     }
+
 }

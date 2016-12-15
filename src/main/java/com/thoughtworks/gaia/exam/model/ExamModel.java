@@ -18,10 +18,10 @@ public class ExamModel extends IdBaseModel {
     private String name;
 
     @Column(name = "start_time", nullable = false)
-    private Date timeStart;
+    private Date startTime;
 
     @Column(name = "end_time", nullable = false)
-    private Date timeEnd;
+    private Date endTime;
 
     @Column(name = "logic_num", nullable = false)
     private Integer logicNum;
@@ -29,7 +29,7 @@ public class ExamModel extends IdBaseModel {
     @Column(name = "program_num", nullable = false)
     private Integer programNum;
 
-    @Column(name = "state", nullable = false)
+    @Column(name = "state")
     private Integer state;
 
     public String getName() {
@@ -40,20 +40,20 @@ public class ExamModel extends IdBaseModel {
         this.name = name;
     }
 
-    public Date getTimeStart() {
-        return timeStart;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setTimeStart(Date timeStart) {
-        this.timeStart = timeStart;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
-    public Date getTimeEnd() {
-        return timeEnd;
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setTimeEnd(Date timeEnd) {
-        this.timeEnd = timeEnd;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
     public Integer getLogicNum() {
