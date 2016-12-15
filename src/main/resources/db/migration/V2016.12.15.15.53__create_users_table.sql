@@ -1,4 +1,4 @@
-CREATE TABLE `Users` (
+CREATE TABLE `USERS` (
   `Id` bigint(11) unsigned NOT NULL AUTO_INCREMENT,
   `Email` varchar(50) DEFAULT NULL,
   `Name` varchar(50) DEFAULT NULL,
