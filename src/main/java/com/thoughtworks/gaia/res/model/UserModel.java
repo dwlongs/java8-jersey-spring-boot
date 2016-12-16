@@ -65,7 +65,12 @@ public class UserModel extends IdBaseModel {
         this.email = email;
     }
 
+    public String getPassword() { return password; }
+
+    public void setPassword(String password) { this.password = password; }
+
     private String email;
+    private String password;
     private String name;
     private String school;
     private String major;
