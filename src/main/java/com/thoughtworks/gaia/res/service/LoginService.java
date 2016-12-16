@@ -20,13 +20,6 @@ public class LoginService implements Loggable {
     private UsersDao usersDao;
 
     public boolean authentication(String email, String password) {
-        UserModel userModel = (UserModel) usersDao.where(new EqualQuery("email", email));
-        String md5Password = Utils.calcMD5(password);
-        if (md5Password.compareTo("test")) {
-            return false;
-        }
-
-
         return false;
     }
 }
