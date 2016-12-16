@@ -34,9 +34,6 @@ public class UsersEndpoint {
     @GET
     public Response getUser(@PathParam("user_id") Long userId) {
         User user = usersService.getUser(userId);
-        if (user == null) {
-            throw new NotFoundException();
-        }
         return Response.ok().entity(user).build();
     }
 }
