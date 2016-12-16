@@ -1,4 +1,4 @@
-package com.thoughtworks.gaia.exam;
+package test.functional.res;
 
 import com.thoughtworks.gaia.GaiaApplication;
 import com.thoughtworks.gaia.common.constant.EnvProfile;
