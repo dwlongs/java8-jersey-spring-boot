@@ -3,14 +3,11 @@ package test.functional.res.test.functional.res;
 import com.thoughtworks.gaia.GaiaApplication;
 import com.thoughtworks.gaia.common.constant.EnvProfile;
 import com.thoughtworks.gaia.common.exception.NotFoundException;
-import com.thoughtworks.gaia.exam.service.ExamService;
-import com.thoughtworks.gaia.res.dao.UsersDao;
 import com.thoughtworks.gaia.res.entity.User;
-import com.thoughtworks.gaia.res.model.UserModel;
+import com.thoughtworks.gaia.res.service.ExamService;
 import com.thoughtworks.gaia.res.service.PapersService;
 import com.thoughtworks.gaia.res.service.UsersService;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -18,11 +15,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import test.functional.res.UsersServiceFunctionTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
