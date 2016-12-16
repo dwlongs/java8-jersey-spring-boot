@@ -3,6 +3,7 @@ package test.functional.res.test.functional.res;
 import com.thoughtworks.gaia.GaiaApplication;
 import com.thoughtworks.gaia.common.constant.EnvProfile;
 import com.thoughtworks.gaia.common.exception.NotFoundException;
+import com.thoughtworks.gaia.exam.service.ExamService;
 import com.thoughtworks.gaia.res.dao.UsersDao;
 import com.thoughtworks.gaia.res.entity.User;
 import com.thoughtworks.gaia.res.model.UserModel;
@@ -33,34 +34,61 @@ import static org.mockito.Mockito.when;
 @Rollback
 @Transactional
 @ActiveProfiles({EnvProfile.TEST})
-public class PapersServiceFunction {
+public class PapersServiceFunctionTest {
     @Autowired
     private PapersService papersService;
-    public ExpectedException expectedException= ExpectedException.none();
-    @Autowired
+
+    //@Autowired
     //private PaperDao paperDao;
 
-    @Test
+    @Test(expected = NotFoundException.class)
     public void should_get_exception_when_user_id_not_exist() {
         //given
         long userId = 1;
 
         //when
-       /* UsersService userService = mock(UsersService.class);
-        when(userService.getUser(userId)).thenReturn(null);*/
+        UsersService usersService = mock(UsersService.class);
+        when(usersService.getUser(userId)).thenThrow(new NotFoundException());
+        papersService.SetUsersService(usersService);
 
         //then
-        expectedException.expect(NotFoundException.class);
-        throw new NotFoundException();
-        //expectedException.expectMessage("");
-        //papersService.validateUserId(userId);
+        papersService.validateUserId(userId);
     }
 
-    private UserModel generateDummyUser() {
-        UserModel userModel = new UserModel();
-        userModel.setName("Dog");
-        userModel.setEmail("dog@zoo.com");
-        userModel.setType(1);
-        return userModel;
+    @Test(expected = NotFoundException.class)
+    public void should_get_exception_when_user_id_admin() {
+        //given
+        long userId = 1;
+        User user = generateDummyUser();
+
+        //when
+        UsersService usersService = mock(UsersService.class);
+        when(usersService.getUser(userId)).thenReturn(user);
+        papersService.SetUsersService(usersService);
+
+        //then
+        papersService.validateUserId(userId);
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void should_get_exception_when_exam_id_not_exist() {
+        //given
+        long examId = 1;
+
+        //when
+        ExamService examService = mock(ExamService.class);
+        when(examService.getExam(examId)).thenThrow(new NotFoundException());
+    /*    papersService.SetUsersService(usersService);
+
+        //then
+        papersService.validateUserId(userId);*/
+    }
+
+    private User generateDummyUser() {
+        User user = new User();
+        user.setName("Tony");
+        user.setEmail("Tony@126.com");
+        user.setType(1);
+        return user;
     }
 }

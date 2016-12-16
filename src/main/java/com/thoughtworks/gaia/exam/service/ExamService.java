@@ -7,6 +7,7 @@ import com.thoughtworks.gaia.exam.model.ExamModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by hliang on 15/12/2016.
@@ -24,5 +25,9 @@ public class ExamService {
         ExamModel examModel = examMapper.map(exam,ExamModel.class);
 
         return examModel.getId();
+    }
+
+    public Exam getExam(long examId) {
+        throw new NotImplementedException();
     }
 }
