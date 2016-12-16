@@ -1,7 +1,7 @@
-package com.thoughtworks.gaia.exam.dao;
+package com.thoughtworks.gaia.res.dao;
 
 import com.thoughtworks.gaia.common.jpa.BaseDaoWrapper;
-import com.thoughtworks.gaia.exam.model.ExamModel;
+import com.thoughtworks.gaia.res.model.ExamModel;
 import org.springframework.stereotype.Component;
 
 /**

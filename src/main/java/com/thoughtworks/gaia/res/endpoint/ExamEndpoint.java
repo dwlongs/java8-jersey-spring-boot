@@ -1,8 +1,8 @@
-package com.thoughtworks.gaia.exam.endpoint;
+package com.thoughtworks.gaia.res.endpoint;
 
-import com.thoughtworks.gaia.exam.entity.Exam;
-import com.thoughtworks.gaia.exam.model.ExamModel;
-import com.thoughtworks.gaia.exam.service.ExamService;
+import com.thoughtworks.gaia.res.entity.Exam;
+import com.thoughtworks.gaia.res.model.ExamModel;
+import com.thoughtworks.gaia.res.service.ExamService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

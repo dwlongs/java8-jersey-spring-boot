@@ -1,4 +1,4 @@
-package com.thoughtworks.gaia.exam;
+package com.thoughtworks.gaia.res;
 
 import com.thoughtworks.gaia.common.MapperBase;
 import org.springframework.stereotype.Component;

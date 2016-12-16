@@ -1,4 +1,4 @@
-package com.thoughtworks.gaia.exam.entity;
+package com.thoughtworks.gaia.res.entity;
 
 import org.springframework.stereotype.Component;
 

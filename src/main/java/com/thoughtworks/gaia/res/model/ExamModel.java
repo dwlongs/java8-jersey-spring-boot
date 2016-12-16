@@ -1,4 +1,4 @@
-package com.thoughtworks.gaia.exam.model;
+package com.thoughtworks.gaia.res.model;
 
 import com.thoughtworks.gaia.common.jpa.IdBaseModel;
 

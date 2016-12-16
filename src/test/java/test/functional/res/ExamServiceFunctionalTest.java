@@ -2,9 +2,9 @@ package test.functional.res;
 
 import com.thoughtworks.gaia.GaiaApplication;
 import com.thoughtworks.gaia.common.constant.EnvProfile;
-import com.thoughtworks.gaia.exam.entity.Exam;
-import com.thoughtworks.gaia.exam.model.ExamModel;
-import com.thoughtworks.gaia.exam.service.ExamService;
+import com.thoughtworks.gaia.res.entity.Exam;
+import com.thoughtworks.gaia.res.model.ExamModel;
+import com.thoughtworks.gaia.res.service.ExamService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

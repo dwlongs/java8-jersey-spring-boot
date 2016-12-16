@@ -1,9 +1,9 @@
-package com.thoughtworks.gaia.exam.service;
+package com.thoughtworks.gaia.res.service;
 
-import com.thoughtworks.gaia.exam.ExamMapper;
-import com.thoughtworks.gaia.exam.dao.ExamDao;
-import com.thoughtworks.gaia.exam.entity.Exam;
-import com.thoughtworks.gaia.exam.model.ExamModel;
+import com.thoughtworks.gaia.res.ExamMapper;
+import com.thoughtworks.gaia.res.dao.ExamDao;
+import com.thoughtworks.gaia.res.entity.Exam;
+import com.thoughtworks.gaia.res.model.ExamModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
