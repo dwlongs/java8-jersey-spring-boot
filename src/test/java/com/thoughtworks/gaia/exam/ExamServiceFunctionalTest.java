@@ -3,6 +3,7 @@ package com.thoughtworks.gaia.exam;
 import com.thoughtworks.gaia.GaiaApplication;
 import com.thoughtworks.gaia.common.constant.EnvProfile;
 import com.thoughtworks.gaia.exam.entity.Exam;
+import com.thoughtworks.gaia.exam.model.ExamModel;
 import com.thoughtworks.gaia.exam.service.ExamService;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,8 +46,8 @@ public class ExamServiceFunctionalTest {
 
     @Test
     public void should_return_1_when_inserted () throws Exception {
-        Long returnId =examService.addExam(exam);
-        assertThat(returnId).isEqualTo(1);
+        ExamModel examModel = examService.addExam(exam);
+        assertThat(examModel.getId()).isEqualTo(1);
     }
 
 }
